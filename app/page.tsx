@@ -391,7 +391,7 @@ return (
 
             </Box>
 
-            <Typography variant="body1" style={{fontFamily: 'josefin sans', fontSize: 50, letterSpacing: 3,}} className='dialogPrice'>
+            <Typography variant="body1" sx={{fontFamily: 'josefin sans', fontSize: {xs:"1.5rem", sm: " 2.5rem", md: "3.125rem"}, letterSpacing: 3,}} className='dialogPrice'>
                     {selectedAlbum.price} <span>GEL</span>
             </Typography>
 
