@@ -385,7 +385,7 @@ return (
             
             <Box sx={{ mt: 2 }}>
                 {/* Display details for the overall album */}
-                <Typography variant="body1" style={{ marginBottom: '0.5rem', fontFamily: 'josefin sans'}} className='dialogDescr'>
+                <Typography variant="body1" sx={{ fontFamily: 'josefin sans', fontSize: {xs:"0.6rem", sm: " 0.8rem", md: "1rem"}}} className='dialogDescr'>
                         {selectedAlbum.des}
                 </Typography>
 

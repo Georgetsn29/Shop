@@ -160,10 +160,12 @@ body {
 .dialogDescr {
     position: absolute;
     right: 40px;
-    top: 150px;
+    top: 100px;
     width: 50%;
     text-align: left;
     text-indent: 20px;
+    /* font-size: clamp(0.5rem, calc(1vw + 1rem), 1rem); */
+
 }
 
 .dialogPrice {
@@ -375,10 +377,11 @@ body {
     }
 
     .dialogDescr {
-        width: 100%;
+        width: auto;
         text-indent: 20px;
         letter-spacing: 2;
         position: static;
+        font-size: 10rem;
     }
 
     .dialogPrice {
