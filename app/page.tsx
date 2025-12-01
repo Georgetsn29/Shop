@@ -203,7 +203,7 @@ export default function HomePage() {
     // --- STATE MANAGEMENT ---
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
-    
+
     const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
     const [activeSlideshow, setActiveSlideshow] = useState<Slide[]>([]);
 
@@ -385,13 +385,13 @@ return (
             
             <Box sx={{ mt: 2 }}>
                 {/* Display details for the overall album */}
-                <Typography variant="body1" style={{ marginBottom: '0.5rem', fontFamily: 'cursive'}} className='dialogDescr'>
+                <Typography variant="body1" style={{ marginBottom: '0.5rem', fontFamily: 'josefin sans'}} className='dialogDescr'>
                         {selectedAlbum.des}
                 </Typography>
 
             </Box>
 
-            <Typography variant="body1" style={{fontFamily: 'cursive', fontSize: 50, letterSpacing: 3,}} className='dialogPrice'>
+            <Typography variant="body1" style={{fontFamily: 'josefin sans', fontSize: 50, letterSpacing: 3,}} className='dialogPrice'>
                     {selectedAlbum.price} <span>GEL</span>
             </Typography>
 
