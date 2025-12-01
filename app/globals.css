@@ -344,6 +344,10 @@ body {
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .grid-item img {
+        aspect-ratio: 1 / 0.821;
+    }
+
     .navbar-nav {
         padding-left: 24px;
         padding-right: 24px;
@@ -486,6 +490,7 @@ body {
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .navbar-nav {
         padding-left: 62px;
         padding-right: 62px;
