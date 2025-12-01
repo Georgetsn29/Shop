@@ -1,0 +1,517 @@
+body {
+    margin: 0;
+    font-family: cursive;
+
+    /* overflow-y: hidden; */
+}
+
+
+.page-container {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Grid Container */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* gap: 1.5rem; */
+    width: 100%;
+}
+
+/* Grid Item */
+.grid-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image Styling */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    /* aspect-ratio: 4 / 3; */
+}
+
+/* Overlay Styling */
+.overlay {
+    position: absolute;
+    inset: 0; /* Equivalent to inset-0 */
+    background-color: rgba(0, 0, 0, 0.5); /* Equivalent to bg-black bg-opacity-50 */
+    display: flex;
+    align-items: center; /* Equivalent to items-center */
+    justify-content: center; /* Equivalent to justify-center */
+    opacity: 0; 
+    transition: opacity 0.4s ease-in-out; /* Equivalent to transition-opacity duration-300 */
+}
+
+.overlay-text {
+    color: #c1c1c1de;
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    /* font-weight: 200; */
+    text-align: center;
+    padding: 1rem; /* Equivalent to p-4 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.overlay-text strong {
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05); /* Equivalent to group-hover:scale-105 */
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+.navbar-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(31, 41, 55, 0.9);
+}
+
+.navbar-nav {
+    max-width: 1280px; /* Equivalent to max-w-7xl */
+    padding: 16px;
+}
+
+.navbar-flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 20px;
+}
+
+.logo-text {
+    color: #ffffff; /* Equivalent to text-indigo-400 */
+    font-weight: 700; /* Equivalent to font-bold */
+    letter-spacing: -0.025em; /* Equivalent to tracking-tight */
+    font-size: 30px; 
+}
+
+.content-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.content-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 300; /* font-light */
+    color: #1f2937; /* text-gray-800 */
+}
+
+.content-paragraph {
+    margin-top: 16px; /* mt-4 */
+    color: #4b5563; /* text-gray-600 */
+}
+
+.dialogImg {
+    width: 40%;
+}
+
+.dialogTitle {
+    margin: 0; 
+    padding: 1rem 1.5rem; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    right: 40px;
+    position: absolute;
+    top: 0;
+    border-bottom: 2px solid rgba(175, 175, 175, 0.838);
+}
+
+.dialogTitle-p {
+    /* font-size: 40px; */
+    font-size: clamp(1rem, calc(1vw + 1rem), 2.5rem);
+    text-align: center;
+    font-weight: 700;
+    /* font-size: 30px; */
+    color: #1a202c;
+    font-family: cursive;
+    letter-spacing: 2;
+}
+
+.dialogDescr {
+    position: absolute;
+    right: 40px;
+    top: 150px;
+    width: 50%;
+    text-align: left;
+    text-indent: 20px;
+}
+
+.dialogPrice {
+    color: rgba(20, 20, 20, 0.926);
+    letter-spacing: 20px;
+    width: 40%;
+    text-align: center;
+}
+
+.closeBtn:hover {
+    transform: rotate(90deg);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+
+.slideshow-page-container {
+    background-color: #f4f4f5;
+    display: grid;
+    width: 40%;
+    margin: 0;
+    row-gap: 10px;
+    text-align: center;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block; /* This class shows the slide */
+}
+
+.slide img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s ease;
+    border-radius: 0 8px 8px 0;
+    user-select: none; /* Prevents text selection */
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+.prev {
+    left: 0;
+}
+
+/* On hover, add a slightly darker background */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    width: 100%;
+    margin-left: 1px;
+}
+
+.thumbnail-item {
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.thumbnail-item:hover {
+    transform: scale(1.05);
+}
+
+.thumbnail-item.active {
+    border: 3px solid #00000081;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    display: block;
+    /* vertical-align: middle; */
+}
+
+
+
+
+
+.simItems-page-container {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: absolute;
+    bottom: 20px;
+    right: 55px;
+}
+
+.simItems-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.simItems-grid-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simItems-grid-item:hover {
+    transform: scale(1.05);
+}
+
+.simItems-grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .image-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .navbar-nav {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .dialogContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .closeBtn {
+        visibility: hidden;
+    }
+
+    .dialogTitle {
+        width: 80%;
+        border-bottom: 2px solid rgba(175, 175, 175, 0.838);
+        position: static;
+    }
+
+    .dialogTitle-p {
+        /* font-size: 20px; */
+        text-align: center;
+        font-weight: 600;
+        color: #1a202c;
+        font-family: cursive;
+        letter-spacing: 1;
+        margin: 0;
+    }
+
+    .dialogDescr {
+        width: 100%;
+        text-indent: 20px;
+        letter-spacing: 2;
+        position: static;
+    }
+
+    .dialogPrice {
+        color: rgba(0, 0, 0, 0.647);
+        letter-spacing: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+
+    .slideshow-page-container {
+        background-color: #f4f4f5;
+        display: grid;
+        width: 100%;
+        margin: 0;
+        row-gap: 10px;
+        text-align: center;
+    }
+
+    .slideshow-container {
+        max-width: 1000px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .thumbnail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        max-width: 1000px;
+        width: 100%;
+        margin-left: 1px;
+    }
+
+    .thumbnail-item {
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 3px solid transparent;
+    }
+
+    .thumbnail-item:hover {
+        transform: scale(1.05);
+    }
+
+    .thumbnail-item.active {
+        border: 3px solid #00000081;
+        transform: scale(1.05);
+    }
+
+    .thumbnail-item img {
+        width: 100%;
+        display: block;
+        /* vertical-align: middle; */
+    }
+
+
+
+
+
+    .simItems-page-container {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        position: static;
+    }
+
+    .simItems-image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+
+    .simItems-grid-item {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .simItems-grid-item:hover {
+        transform: scale(1.05);
+    }
+
+    .simItems-grid-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+}
+
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .navbar-nav {
+        padding-left: 62px;
+        padding-right: 62px;
+    }
+
+    .simItems-page-container {
+        bottom: 20px;
+        right: 40px;
+    }
+}
+
+/* Desktop/Large screens (lg: grid-cols-3) */
+@media (min-width: 1025px) {
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .navbar-nav {
+        padding-left: 32px; /* lg:px-8 */
+        padding-right: 32px;
+    }
+}
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4efe44b;
+  border: 2px solid #f4efe4cd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(31, 41, 55, 0.9);
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(31, 41, 55, 0.963);
+}
