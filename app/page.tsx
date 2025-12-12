@@ -32,7 +32,7 @@ const imageAlbums = [
     { 
       id: 1, 
       text: 'Mountain Ridge Album',
-      coverSrc: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80', // Thumbnail image
+      coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/01.jpg', // Thumbnail image
       alt: 'A beautiful mountain ridge at sunset.',
       des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
       price: 199,
@@ -45,7 +45,7 @@ const imageAlbums = [
     { 
       id: 2, 
       text: 'Desert Night Exploration',
-      coverSrc: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', 
+      coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/02.jpg', 
       alt: 'Stars over a vast desert landscape.',
       des: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       price: 1500,
@@ -59,7 +59,7 @@ const imageAlbums = [
     { 
         id: 3, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/03.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 20,
@@ -73,7 +73,7 @@ const imageAlbums = [
     { 
         id: 4, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/04.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 20,
@@ -87,7 +87,7 @@ const imageAlbums = [
     { 
         id: 5, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/05.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 199,
@@ -101,7 +101,7 @@ const imageAlbums = [
     { 
         id: 6, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/06.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 1500,
@@ -115,7 +115,7 @@ const imageAlbums = [
     { 
         id: 7, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/07.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 199,
@@ -129,7 +129,7 @@ const imageAlbums = [
     { 
         id: 8, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/08.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 1500,
@@ -143,7 +143,7 @@ const imageAlbums = [
     { 
         id: 9, 
         text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', 
+        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/11.jpg', 
         alt: 'A bustling marketplace full of colour and life.',
         des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
         price: 20,

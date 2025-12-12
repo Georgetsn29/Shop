@@ -47,7 +47,7 @@ body {
     height: auto;
     object-fit: cover;
     display: block;
-    /* aspect-ratio: 4 / 3; */
+    aspect-ratio: 1 / 0.67;
 }
 
 /* Overlay Styling */
@@ -484,8 +484,6 @@ body {
 
 }
 
-
-
 @media (max-width: 1024px) and (min-width: 768px) {
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -512,6 +510,12 @@ body {
         padding-left: 32px; /* lg:px-8 */
         padding-right: 32px;
     }
+}
+
+@media (min-width: 1600px) {
+.grid-item img {
+    aspect-ratio: 1 / 0.81;
+}
 }
 
 
