@@ -519,6 +519,13 @@ body {
 }
 
 
+@media (min-width: 390px) {
+    .grid-item img {
+    aspect-ratio: 1 / 1.01;
+}
+}
+
+
 
 
 
