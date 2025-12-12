@@ -519,11 +519,18 @@ body {
 }
 
 
-@media (min-width: 390px) {
+@media (min-width: 390px) and (max-width: 400px){
     .grid-item img {
     aspect-ratio: 1 / 1.01;
 }
 }
+
+@media (min-width: 400px) and (max-width: 450px){
+    .grid-item img {
+    aspect-ratio: 1 / 1.02;
+}
+}
+
 
 
 
