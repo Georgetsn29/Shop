@@ -48,6 +48,7 @@ body {
     object-fit: cover;
     display: block;
     aspect-ratio: 1 / 0.67;
+    /* object-fit: contain; */
 }
 
 /* Overlay Styling */

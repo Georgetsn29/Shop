@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react'; 
 
-// --- MUI Component Imports ---
+import { simobject } from '../../backend/src/data/similarItems'
+import { object } from '../../backend/src/data/items'
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -28,177 +29,18 @@ interface Album {
   slides: Slide[];
 }
 
-const imageAlbums = [
-    { 
-      id: 1, 
-      text: 'Mountain Ridge Album',
-      coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/01.jpg', // Thumbnail image
-      alt: 'A beautiful mountain ridge at sunset.',
-      des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-      price: 199,
-      slides: [
-          { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 1: Misty Lake at Dawn' },
-          { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', caption: 'Slide 2: Rocky Peak View' },
-          { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 3: Forest Path in Summer' },
-      ]
-    },
-    { 
-      id: 2, 
-      text: 'Desert Night Exploration',
-      coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/02.jpg', 
-      alt: 'Stars over a vast desert landscape.',
-      des: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-      price: 1500,
-      slides: [
-          { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 1: Stars Above Desert' },
-          { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 2: Desert Canyon Trail' },
-          { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 3: Sunset Dunes Panorama' },
-      ]
-    },
-    // Add more albums here...
-    { 
-        id: 3, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/03.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 20,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80', caption: 'Slide 1: Spice Stalls' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 2: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 3: Alley Vendors' },
-        ]
-    },
-
-    { 
-        id: 4, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/04.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 20,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80', caption: 'Slide 1: Spice Stalls' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 2: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 3: Alley Vendors' },
-        ]
-    },
-
-    { 
-        id: 5, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/05.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 199,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 1: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', caption: 'Slide 2: Rocky Peak View' },
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 3: Forest Path in Summer' },
-        ]
-    },
-
-    { 
-        id: 6, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/06.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 1500,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 1: Stars Above Desert' },
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 2: Desert Canyon Trail' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 3: Sunset Dunes Panorama' },
-        ]
-    },
-
-    { 
-        id: 7, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/07.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 199,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 1: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', caption: 'Slide 2: Rocky Peak View' },
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 3: Forest Path in Summer' },
-        ]
-    },
-    
-    { 
-        id: 8, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/08.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 1500,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 1: Stars Above Desert' },
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 2: Desert Canyon Trail' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 3: Sunset Dunes Panorama' },
-        ]
-    },
-
-    { 
-        id: 9, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://www.odindesignthemes.com/thetrickster/img/products/11.jpg', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-        price: 20,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80', caption: 'Slide 1: Spice Stalls' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 2: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 3: Alley Vendors' },
-        ]
-    },
-];
-
-const similarItems = [
-  { 
-      id: 1, 
-      text: 'Mountain Ridge Album',
-      coverSrc: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80', // Thumbnail image
-      alt: 'A beautiful mountain ridge at sunset.',
-      des: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-      price: 199,
-      slides: [
-          { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 1: Misty Lake at Dawn' },
-          { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', caption: 'Slide 2: Rocky Peak View' },
-          { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 3: Forest Path in Summer' },
-      ]
-    },
-    { 
-      id: 2, 
-      text: 'Desert Night Exploration',
-      coverSrc: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=600&q=80', 
-      alt: 'Stars over a vast desert landscape.',
-      des: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-      price: 1500,
-      slides: [
-          { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 1: Stars Above Desert' },
-          { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', caption: 'Slide 2: Desert Canyon Trail' },
-          { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 3: Sunset Dunes Panorama' },
-      ]
-    },
-    // Add more albums here...
-    { 
-        id: 3, 
-        text: 'Vibrant Marketplace Scenes',
-        coverSrc: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80', 
-        alt: 'A bustling marketplace full of colour and life.',
-        des: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.',
-        price: 20,
-        slides: [
-            { src: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80', caption: 'Slide 1: Spice Stalls' },
-            { src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80', caption: 'Slide 2: Misty Lake at Dawn' },
-            { src: 'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?w=800&q=80', caption: 'Slide 3: Alley Vendors' },
-        ]
-    },
-]
-
 export default function HomePage() {
+
+    useEffect(() => {
+    async function loadData() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/hello`
+      );
+      const data = await res.json();
+    }
+
+    loadData();
+  }, []);
     
     // --- STATE MANAGEMENT ---
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -269,22 +111,24 @@ return (
 <div className="page-container">
     <div className="image-grid">
         {/* --- MAIN GALLERY GRID: Maps over imageAlbums --- */}
-        {imageAlbums.map((album) => (
+        {object.map(obj =>  (
             <div 
-                key={album.id} 
+                key={obj.id} 
                 className="grid-item"
-                onClick={() => openModal(album)} // Pass the full album
+                onClick={() => openModal(obj)} // Pass the full album
             >
-                <img
+                <img key={obj.id} src={obj.img} alt={obj.title} />
+                
+                {/* <img
                     src={album.coverSrc} // Use the coverSrc for the main page thumbnail
                     alt={album.alt}
                     className="grid-item-img"
                     width={400}
                     height={400}
-                />
+                /> */}
                 <div className="overlay">
                     <p className="overlay-text">
-                        <strong>{album.text}</strong> {album.alt}
+                        <strong>{obj.text}</strong> {obj.alt}
                     </p>
                 </div>
             </div>
@@ -399,7 +243,7 @@ return (
 
 <div className="simItems-page-container">
 <div className="simItems-image-grid">
-    {similarItems.map((album) => (
+    {simobject.map((album) => (
         <div 
             key={album.id} 
             className="simItems-grid-item"
